@@ -26,7 +26,9 @@ def home_redirect(request):
         # Redirect to profile or dashboard
         return redirect('profile')  # or your desired authenticated page
     else:
-        return redirect('api/auth/token')  # or 'register'
+        return redirect('/api/docs/')
+
+        # return redirect('api/auth/token')  # or 'register'
 	
 # class RegisterView(APIView):
 # 	permission_classes = [AllowAny]
@@ -46,7 +48,7 @@ class RegisterResponseSerializer(serializers.Serializer):
     email = serializers.EmailField()
     first_name = serializers.CharField()
     last_name = serializers.CharField()
-	
+
 @extend_schema(
     request=RegisterSerializer,
     responses={201: RegisterResponseSerializer},
